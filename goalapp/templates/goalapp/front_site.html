@@ -1,1 +1,27 @@
-Hi
+{% extends 'goalapp/base.html' %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+
+{{ form.non_field_errors }}
+<form method="POST" class="goal-form">{% csrf_token %}
+  <div class="fieldWrapper">
+      {{ form.goal_setter.errors }}
+      <label for="{{ form.goal_setter.id_for_label }}">Your Name:</label></br>
+<!-- for those render_fields you need to pip install django-widget-tweaks and register 'widget_tweaks', in settings.py as an app -->
+      {% render_field form.goal_setter type="text" class="form-control" %}
+  </div>
+  <div class="fieldWrapper">
+      {{ form.goal_body.errors }}
+      <label for="{{ form.goal_body.id_for_label }}">Your Goal: </label></br>
+      {% render_field form.goal_body type="text" class="form-control" %}
+  </div>
+  <div class="fieldWrapper">
+      {{ form.goal_deadline.errors }}
+      <label for="{{ form.goal_deadline.id_for_label }}">The Deadline: </label></br>
+      {% render_field form.goal_deadline class="form-control"  %}
+  </div>
+  <button type="submit" class="save btn btn-default">Save</button>
+</form>
+{% endblock %}
