@@ -1,0 +1,17 @@
+{% extends 'goalapp/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+  <div class="post">
+    <h1>{{ user.user }}</h1>
+    <p>{{ user.user_email}}</p>
+  </div>
+  {% for goal in user.goal.all %}
+    You wanted to:</br>
+    {{goal.goal_body}} </br>
+    until: </br>
+    {{goal.goal_deadline}}
+{% empty %}
+  You have no goals
+{% endfor %}
+{% endblock %}

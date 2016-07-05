@@ -1,27 +1,33 @@
 {% extends 'goalapp/base.html' %}
 {% load widget_tweaks %}
 
-
 {% block content %}
 
-{{ form.non_field_errors }}
-<form method="POST" class="goal-form">{% csrf_token %}
+{{ user_form.non_field_errors }}
+{{ goal_form.non_field_errors }}
+<form method="POST" class="start-form">{% csrf_token %}
   <div class="fieldWrapper">
-      {{ form.goal_setter.errors }}
-      <label for="{{ form.goal_setter.id_for_label }}">Your Name:</label></br>
+      {{ user_form.user.errors }}
+      <label for="{{ user_form.user.id_for_label }}">Your Name:</label></br>
+      {% render_field user_form.user class="form-control" %}
+  </div>
+  <div class="fieldWrapper">
+      {{ user_form.user_email.errors }}
+      <label for="{{ user_form.user_email.id_for_label }}">Your Email Adress:</label></br>
+      {% render_field user_form.user_email class="form-control" %}
+  </div>
+<!-- Anfang Goalform Variablen -->
+  <div class="fieldWrapper">
+      {{ goal_form.goal_body.errors }}
+      <label for="{{ goal_form.goal_body.id_for_label }}">Your Goal: </label></br>
 <!-- for those render_fields you need to pip install django-widget-tweaks and register 'widget_tweaks', in settings.py as an app -->
-      {% render_field form.goal_setter type="text" class="form-control" %}
+      {% render_field goal_form.goal_body type="text" class="form-control" %}
   </div>
   <div class="fieldWrapper">
-      {{ form.goal_body.errors }}
-      <label for="{{ form.goal_body.id_for_label }}">Your Goal: </label></br>
-      {% render_field form.goal_body type="text" class="form-control" %}
+      {{ goal_form.goal_deadline.errors }}
+      <label for="{{ goal_form.goal_deadline.id_for_label }}">The Deadline: </label></br>
+      {% render_field goal_form.goal_deadline class="form-control"  %}
   </div>
-  <div class="fieldWrapper">
-      {{ form.goal_deadline.errors }}
-      <label for="{{ form.goal_deadline.id_for_label }}">The Deadline: </label></br>
-      {% render_field form.goal_deadline class="form-control"  %}
-  </div>
-  <button type="submit" class="save btn btn-default">Save</button>
+  <button type="submit" class="save btn btn-default" >Save</button>
 </form>
 {% endblock %}
