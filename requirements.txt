@@ -1,0 +1,4 @@
+pip install django-widget-tweaks
+pip install mysql-connector-repackaged
+pip install mysqlclient-1.3.7-cp35-cp35m-win32.whl
+pip install MySQL-python
