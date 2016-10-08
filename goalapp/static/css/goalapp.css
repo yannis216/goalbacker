@@ -1,0 +1,73 @@
+body{
+  background: url(../images/wooden_bridge.jpg) no-repeat;
+  background-size: 100%;
+  overflow-x: hidden;
+  color: white;
+}
+
+.form-control:focus{
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 102, 0, 0.6);
+  border-color: #ff6600;
+}
+
+.navbar{
+  border-bottom: 1px solid #99cc00;
+  height: 80px;
+}
+
+#navbar_logo{
+    margin-top: 5px;
+    width: 70px;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px !important;  /* 50% of your logo width */
+    display: block;
+}
+
+.slogan{
+  margin-top: 100px;
+  margin-top: 15vh;
+  text-align: center;
+}
+
+.color_accent{
+  color: #ff6600;
+  display: inline;
+}
+
+.bigger_font{
+  font-size: 1.7em;
+  display: inline;
+}
+.save{
+  width: 100px;
+  background-color: #99cc00;
+}
+
+.steps{
+  text-align: center;
+  margin-top: 120px;
+  margin-top: 20vh;
+  font-size: 1.2em;
+}
+#save_front{
+  margin-top: 50px;
+  margin-top: 7vh;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important;  /* 50% of your logo width */
+  display: block;
+}
+
+
+#goal_form_row{
+  margin-top: 50px;
+}
+
+
+.goal_container{
+  margin-top: 150px;
+  background-color:rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+
+}

@@ -3,26 +3,26 @@
 
 {% block content %}
 
-{{ goal_form.non_field_errors }}
+{{ user_form.non_field_errors }}
 <div class="row">
   <div class="col-md-8 col-md-offset-2 slogan">
-    <h1>Lass deine Freunde deinen inneren Schweinehund besiegen.</h1>
+    <h1>Gib uns noch deinen Vornamen und deine Email, damit wir dich erreichen können.</h1>
   </div>
 </div>
 <form method="POST" class="start_form">{% csrf_token %}
 <!-- Anfang Goalform Variablen -->
 <div class="row" id="goal_form_row">
-  <div class="col-md-4 col-md-offset-3">
+  <div class="col-md-2 col-md-offset-3">
     <div class="fieldWrapper">
-        <label for="{{ goal_form.goal_body.id_for_label }}">Dein Ziel</label></br>
+        <label for="{{ user_form.user.id_for_label }}">Dein Name</label></br>
   <!-- for those render_fields you need to pip install django-widget-tweaks and register 'widget_tweaks', in settings.py as an app -->
-        {% render_field goal_form.goal_body type="text" class="form-control" %}
+        {% render_field user_form.user class="form-control" %}
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-4">
     <div class="fieldWrapper">
-        <label for="{{ goal_form.goal_deadline.id_for_label }}">Deine Deadline</label></br>
-        {% render_field goal_form.goal_deadline class="form-control"  %}
+      <label for="{{ user_form.user_email.id_for_label }}">Deine Email Adresse</label></br>
+      {% render_field user_form.user_email class="form-control" %}
     </div>
   </div>
 </div>
@@ -36,7 +36,7 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-      <button type="submit" class="save btn"  id="save_front">Weiter</button>
+      <button type="submit" class="save btn"  id="save_front">Los geht´s</button>
   </div>
 </div>
 </form>

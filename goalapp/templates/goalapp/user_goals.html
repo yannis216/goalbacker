@@ -2,16 +2,44 @@
 {% load widget_tweaks %}
 
 {% block content %}
-  <div class="post">
-    <h1>{{ user.user }}</h1>
-    <p>{{ user.user_email}}</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 goal_container">
+    <p class="color_accent bigger_font">
+      {{ user.user }}
+    </p>
+    möchte ein Ziel erreichen:
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+        <p class="bigger_font">
+          {% for goal in user.goal.all %}
+           {{goal.goal_body}}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        Ich spende X, falls das Ziel <p class="color_accent bigger_font">
+          spätestens am
+        </p> <p class="bigger_font">{{goal.goal_deadline}} {% empty %}
+          You have no goals{% endfor %} </p>
+          erreicht wird. Du spendest nicht nur für einen
+        wohltätigen Zweck. Du spendest auch Motivation für {{ user.user }}.
+        Ohne zusätzliche Kosten.
+      </div>
+    </div>
   </div>
-  {% for goal in user.goal.all %}
-    You wanted to:</br>
-    {{goal.goal_body}} </br>
-    until: </br>
-    {{goal.goal_deadline}}
-{% empty %}
-  You have no goals
-{% endfor %}
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 steps">
+    <p class="color_accent">
+      1.
+    </p> Motivationsspende zusagen
+    <p class="color_accent">
+      2.
+    </p> Selber Ziele erstellen und teilen
+     <p class="color_accent">
+      3.
+    </p> Gemeinsam mit {{ user.user }} den Erfolg feiern.
+  </div>
+</div>
 {% endblock %}
