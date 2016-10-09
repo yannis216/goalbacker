@@ -20,18 +20,19 @@ def front_site(request):
 def user_goals(request, pk):
     if request.method == "POST":
         money_form = MoneyForm(request.POST)
-        user = get_object_or_404(User, pk=pk)
+        goal = get_object_or_404(Goal, pk=pk)
         if all([money_form.is_valid()]):
+            goal.goal_funds += money_form
             goal = money_form.save(commit="False")
             goal.save()
-            return redirect('user_goals', pk=user.pk)
+            return redirect('user_goals', pk=goal.pk)
         else:
             money_form = MoneyForm(request.POST)
             return render(request, 'goalapp/user_goals.html',  {'money_form': money_form})
     else:
-        user = get_object_or_404(User, pk=pk)
+        goal = get_object_or_404(Goal, pk=pk)
         money_form = MoneyForm()
-        return render(request, 'goalapp/user_goals.html', {'user': user, 'money_form': money_form})
+        return render(request, 'goalapp/user_goals.html', {'goal': goal, 'money_form': money_form})
 
 def add_info(request, pk):
     if request.method == "POST":
@@ -42,7 +43,7 @@ def add_info(request, pk):
             goal.user = user
             user.save()
             goal.save()
-            return redirect('user_goals', pk=user.pk)
+            return redirect('user_goals', pk=goal.pk)
         else:
             user_form = UserForm(request.POST)
             return render(request, 'goalapp/front_site.html',  {'user_form': user_form, 'goal_form': goal_form})
