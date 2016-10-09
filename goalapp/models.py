@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from decimal import Decimal
 
 class User(models.Model):
     user = models.CharField(max_length=50)
@@ -13,6 +14,7 @@ class Goal(models.Model):
     goal_body = models.CharField(max_length= 100)
     goal_deadline = models.DateTimeField(default=timezone.now)
     goal_status = models.IntegerField(default=1)
+    goal_funds = models.DecimalField(max_digits=6, decimal_places=2, default=Decimal('0.00'))
 
     def __str__(self):
         return self.goal_body

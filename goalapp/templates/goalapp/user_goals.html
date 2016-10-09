@@ -4,10 +4,10 @@
 {% block content %}
 <div class="row">
   <div class="col-md-6 col-md-offset-3 goal_container">
-    <p class="color_accent bigger_font">
+    <p class="orange_accent bigger_font">
       {{ user.user }}
     </p>
-    möchte ein Ziel erreichen:
+    möchte das Ziel:
     <div class="row">
       <div class="col-md-10 col-md-offset-2">
         <p class="bigger_font">
@@ -18,26 +18,60 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        Ich spende X, falls das Ziel <p class="color_accent bigger_font">
-          spätestens am
-        </p> <p class="bigger_font">{{goal.goal_deadline}} {% empty %}
-          You have no goals{% endfor %} </p>
-          erreicht wird. Du spendest nicht nur für einen
-        wohltätigen Zweck. Du spendest auch Motivation für {{ user.user }}.
-        Ohne zusätzliche Kosten.
+        bis in
+        <p class="bigger_font">
+          {{goal.goal_deadline|timeuntil}}
+        </p>
+          erreichen.</br> Bisher wurden <p class="green_accent bigger_font">
+          {{ goal.goal_funds|floatformat}} €
+        </p>
+         Motivationsspenden zugesagt.
+
+        {% empty %}
+          You have no goals
+        {% endfor %}
       </div>
     </div>
   </div>
 </div>
 <div class="row">
+  <div class="col-md-3 col-md-offset-3 goal_support_functions">
+<!-- Anfang Formular Motivationsspende -->
+    <form method="POST" class="start_form">{% csrf_token %}
+      <div class="row">
+        <div class="col-md-4">
+          <div class="fieldWrapper">
+        <!-- for those render_fields you need to pip install django-widget-tweaks and register 'widget_tweaks', in settings.py as an app -->
+              {% render_field money_form.goal_funds type="text" class="form-control" %}
+          </div>
+        </div>
+        <div class="col-md-2">
+          <p class="bigger_font">
+            €
+          </p>
+        </div>
+        <div class="col-md-6">
+          <button type="submit" class="save btn">Zusagen</button>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-12">
+        Du spendest nicht nur, wie gewohnt, für einen
+        wohltätigen Zweck. Du spendest auch Motivation für {{ user.user }}.
+        Ohne zusätzliche Kosten.
+      </div>
+    </div>
+  </div>
+<div class="row">
   <div class="col-md-8 col-md-offset-2 steps">
-    <p class="color_accent">
+    <p class="orange_accent">
       1.
     </p> Motivationsspende zusagen
-    <p class="color_accent">
+    <p class="orange_accent">
       2.
     </p> Selber Ziele erstellen und teilen
-     <p class="color_accent">
+     <p class="orange_accent">
       3.
     </p> Gemeinsam mit {{ user.user }} den Erfolg feiern.
   </div>

@@ -10,3 +10,8 @@ class UserForm(forms.ModelForm):
     class Meta:
         model= User
         fields = ('user', 'user_email')
+
+class MoneyForm(forms.ModelForm):
+    class Meta:
+        model = Goal
+        fields = ('goal_funds',)

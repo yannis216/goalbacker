@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Goal, User
-from .forms import GoalForm, UserForm
+from .forms import GoalForm, UserForm, MoneyForm
 
 # Create your views here.
 def front_site(request):
@@ -18,8 +18,20 @@ def front_site(request):
         return render(request, 'goalapp/front_site.html',  {'goal_form': goal_form})
 
 def user_goals(request, pk):
-    user = get_object_or_404(User, pk=pk)
-    return render(request, 'goalapp/user_goals.html', {'user': user})
+    if request.method == "POST":
+        money_form = MoneyForm(request.POST)
+        user = get_object_or_404(User, pk=pk)
+        if all([money_form.is_valid()]):
+            goal = money_form.save(commit="False")
+            goal.save()
+            return redirect('user_goals', pk=user.pk)
+        else:
+            money_form = MoneyForm(request.POST)
+            return render(request, 'goalapp/user_goals.html',  {'money_form': money_form})
+    else:
+        user = get_object_or_404(User, pk=pk)
+        money_form = MoneyForm()
+        return render(request, 'goalapp/user_goals.html', {'user': user, 'money_form': money_form})
 
 def add_info(request, pk):
     if request.method == "POST":

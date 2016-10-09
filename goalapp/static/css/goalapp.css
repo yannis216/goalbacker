@@ -30,8 +30,13 @@ body{
   text-align: center;
 }
 
-.color_accent{
+.orange_accent{
   color: #ff6600;
+  display: inline;
+}
+
+.green_accent{
+  color: #99cc00;
   display: inline;
 }
 
@@ -42,6 +47,7 @@ body{
 .save{
   width: 100px;
   background-color: #99cc00;
+  display: inline;
 }
 
 .steps{
@@ -69,5 +75,10 @@ body{
   margin-top: 150px;
   background-color:rgba(0, 0, 0, 0.5);
   border-radius: 30px;
+}
 
+.goal_support_functions{
+  margin-top: 5px;
+  background-color:rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
 }
