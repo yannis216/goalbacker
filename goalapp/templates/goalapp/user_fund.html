@@ -3,10 +3,10 @@
 
 {% block content %}
 
-{{ user_form.non_field_errors }}
+{{ user_fund_form.non_field_errors }}
 <div class="row">
   <div class="col-md-8 col-md-offset-2 slogan">
-    <h1>Gib uns noch deinen Vornamen und deine Email, damit wir dich erreichen können.</h1>
+    <h1>Gib uns noch deinen Vornamen und deine Email. Du kriegst eine Mail, wenn {{ goal.user }} sein Ziel erreicht.</h1>
   </div>
 </div>
 <form method="POST" class="start_form">{% csrf_token %}
@@ -14,21 +14,21 @@
 <div class="row" id="goal_form_row">
   <div class="col-md-2 col-md-offset-3">
     <div class="fieldWrapper">
-        <label for="{{ user_form.user.id_for_label }}">Dein Name</label></br>
+        <label for="{{ user_fund_form.funder.id_for_label }}">Dein Name</label></br>
   <!-- for those render_fields you need to pip install django-widget-tweaks and register 'widget_tweaks', in settings.py as an app -->
-        {% render_field user_form.user class="form-control" %}
+        {% render_field user_fund_form.funder class="form-control" %}
     </div>
   </div>
   <div class="col-md-4">
     <div class="fieldWrapper">
-      <label for="{{ user_form.user_email.id_for_label }}">Deine Email Adresse</label></br>
-      {% render_field user_form.user_email class="form-control" %}
+      <label for="{{ user_fund_form.funder_email.id_for_label }}">Deine Email Adresse</label></br>
+      {% render_field user_fund_form.funder_email class="form-control" %}
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-md-4 col-md-offset-3">
-    {{ goal_form.goal_body.errors }}
+    {{ user_fund_form.goal_body.errors }}
   </div>
   <div class="col-md-2">
     {{ goal_form.goal_deadline.errors }}

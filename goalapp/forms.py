@@ -1,5 +1,5 @@
 from django import forms
-from .models import Goal, User
+from .models import Goal, User, Funder
 
 class GoalForm(forms.ModelForm):
     class Meta:
@@ -15,3 +15,8 @@ class MoneyForm(forms.ModelForm):
     class Meta:
         model = Goal
         fields = ('goal_funds',)
+
+class UserFundForm(forms.ModelForm):
+    class Meta:
+        model= Funder
+        fields = ('funder', 'funder_email')

@@ -55,7 +55,14 @@ body{
   margin-top: 120px;
   margin-top: 20vh;
   font-size: 1.2em;
+  background-color:rgba(0, 0, 0, 0.5);
 }
+
+#steps_usergoals{
+  margin-top: 50px;
+  margin-top: 12vh;
+}
+
 #save_front{
   margin-top: 50px;
   margin-top: 7vh;
@@ -81,4 +88,8 @@ body{
   margin-top: 5px;
   background-color:rgba(0, 0, 0, 0.5);
   border-radius: 30px;
+}
+
+.shady_container{
+
 }
