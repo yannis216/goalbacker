@@ -1,5 +1,9 @@
 body{
-  background: url(../images/wooden_bridge.jpg) no-repeat;
+  background: url(../images/wooden_bridge.jpg) no-repeat center center fixed #111;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   background-size: 100%;
   overflow-x: hidden;
   color: white;
@@ -54,11 +58,12 @@ body{
   text-align: center;
   margin-top: 120px;
   margin-top: 20vh;
-  font-size: 1.2em;
+  font-size: 1.5em;
   background-color:rgba(0, 0, 0, 0.5);
 }
 
 #steps_usergoals{
+  font-size: 1.5em;
   margin-top: 50px;
   margin-top: 12vh;
 }
