@@ -4,3 +4,4 @@ goalvenv
 db.sqlite3
 /static
 .DS_Store
+goalbacker/settings.py
