@@ -3,6 +3,11 @@
 
 {% block content %}
 <div class="row">
+  <div class="col-md-8 col-md-offset-2 slogan">
+    <h1>Spende an Deutsche Welthungerhile e.V., falls {{ goal.user }} sein Ziel erreicht. Du spendest damit Motivation und für einen guten Zweck.</h1>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-6 col-md-offset-3 goal_container">
     <p class="orange_accent bigger_font">
       {{ goal.user }}
@@ -24,7 +29,7 @@
           erreichen.</br> Bisher wurden <p class="green_accent bigger_font">
           {{ goal.goal_funds|floatformat}} €
         </p>
-         Motivationsspenden zugesagt.
+         Motivationsspenden an Deutsche Welthungerhile e.V. zugesagt.
       </div>
     </div>
   </div>
@@ -54,7 +59,7 @@
       <div class="col-md-12">
         Du spendest nicht nur, wie gewohnt, für einen
         wohltätigen Zweck. Du spendest auch Motivation für {{ goal.user }}.
-        Ohne zusätzliche Kosten.
+        Ohne zusätzliche Kosten - Gib deiner Spende einen zusätzlichen Nutzen!
       </div>
     </div>
   </div>
@@ -62,7 +67,13 @@
 <!-- Anfang Formular Motivationsspende -->
       <div class="col-md-12">
         <div class="fb-share-button" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="{{ request.build_absolute_uri }}">Teilen</a></div>
+      </br>Teile das Ziel mit deinen Freunden, um mehr Motivation und Spenden zu sammeln!
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 new_goal">
+      <a href="../../">Ein neues Ziel anlegen</a>
     </div>
   </div>
 <div class="row">
